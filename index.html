@@ -1,52 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPR-390</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>VR BASED MEDICAL TRAINING</h1>
-  </header>
-  <div class="members">
-    <h1>Team Members:</h1>
-    <ol>Sakshi P C: 20221CSG0083</ol>
-    <ol>Kushi S K: 20221CSG0087</ol>
-    <ol>Archana: 20221CSG0113</ol>
-    <ol>Sumith: 20221CSG0070 </ol>
-    <ol>Kushal: 20221CSG0108</ol>
-    <ol>Akash: 20221MEC0008</ol>
-  </div>
-  <main>
-    <div class="video-container">
-      <h1>How to insert a nasogastric tube for NG intubation</h1>
-      <video id="video-player" controls>
-        <source src="C:\Users\LENOVO\Desktop\How to insert a nasogastric tube for NG intubation - 3d animation.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <h1>Tracheotomy - 3D animation</h1>
-      <video id="video-player" controls>
-        <source src="C:\Users\LENOVO\Desktop\Tracheotomy - 3D animation.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <h1>Nasotracheal suctioning (NTS)</h1>
-      <video id="video-player" controls>
-        <source src="C:\Users\LENOVO\Desktop\Nasotracheal suctioning (NTS) - 3D animation.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <div class="video-thumbnails">
-      <img src="C:\Users\LENOVO\Desktop\download.jpg" alt="Video 1 Thumbnail" onclick="changeVideo('video1.mp4', 'thumbnail1.jpg')">
-      <img src="C:\Users\LENOVO\Desktop\images (1).jpg" alt="Video 2 Thumbnail" onclick="changeVideo('video2.mp4', 'thumbnail2.jpg')">
-      <img src="C:\Users\LENOVO\Desktop\images.jpg" alt="Video 3 Thumbnail" onclick="changeVideo('video3.mp4', 'thumbnail3.jpg')">
-    </div>
-  </main>
-  <footer>
-    <p>&copy; 2024 3D Medical Training Videos</p>
-  </footer>
 
-  <script src="script.js"></script>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index.css">
+	<title>Landing Page</title>
+</head>
+
+<body>
+	<nav>
+		<div class="heading">IPR-390</div>
+		<span class="sideMenuButton"
+			onclick="openNavbar()">
+			☰
+		</span>
+
+		<div class="navbar">
+			<ul>
+				<li><a href="#Home">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Sign Up</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Side navigation bar for 
+		responsive website -->
+	<div class="sideNavigationBar"
+		id="sideNavigationBar">
+		<a href="#" class="closeButton"
+			onclick="closeNavbar()">
+			
+		</a>
+		<a href="#">Home</a>
+		<a href="#">About</a>
+		<a href="#">Sign Up</a>
+	</div>
+
+	<!-- Content -->
+	<div class="line" id="Home">
+		<div class="side1">
+			<h1>WELCOME TO VR BASED MEDICAL TRAINING</h1>
+			<button>
+				<a href=
+"index.html">
+					Explore More
+				</a>
+			</button>
+		</div>
+		<div class="side2">
+			<img src=
+"C:\Users\LENOVO\Desktop\Purple Pink Gradient Virtual Reality Presentation.jpg"
+				width="500">
+		</div>
+	</div>
+
+	<section class="about" id="My Projects">
+		<div class="content">
+			<div class="title">
+				<span>Some 3D Models</span>
+			</div>
+			<div class="boxes">
+				<div class="box">
+					<div class="topic">
+						<a href="" target="_blank">
+							<div class="sketchfab-embed-wrapper"> <iframe title="Anatomy" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/0e9ade8d5f9443d39abd44fb05e1608d/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/anatomy-0e9ade8d5f9443d39abd44fb05e1608d?utm_medium=embed&utm_campaign=share-popup&utm_content=0e9ade8d5f9443d39abd44fb05e1608d" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+						</a>
+					</div>
+				</div>
+				<div class="box">
+
+					<div class="topic">
+						<a href="" target="_blank">
+							<div class="sketchfab-embed-wrapper"> <iframe title="Stylized Female Anatomy Blockout v1" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/9e11b7d72b244a27bdcda1ee8be8457a/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/stylized-female-anatomy-blockout-v1-9e11b7d72b244a27bdcda1ee8be8457a?utm_medium=embed&utm_campaign=share-popup&utm_content=9e11b7d72b244a27bdcda1ee8be8457a" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+						</a>
+					</div>
+					<p>
+						
+
+					</p>
+				</div>
+
+				<div class="box">
+					<div class="topic">
+						<a href="" target="_blank">
+							<div class="sketchfab-embed-wrapper"> <iframe title="Skull" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/83bcc0af08774ef0b65ef2d3d815fe75/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/skull-83bcc0af08774ef0b65ef2d3d815fe75?utm_medium=embed&utm_campaign=share-popup&utm_content=83bcc0af08774ef0b65ef2d3d815fe75" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+						</a>
+					</div>
+					<p>
+						
+
+					</p>
+				</div>
+                <div class="box">
+
+					<div class="topic">
+						<a href="" target="_blank">
+							<div class="sketchfab-embed-wrapper"> <iframe title="Brain Point Cloud" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/c427ea0aee214141a78eba37bf9b76bb/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/brain-point-cloud-c427ea0aee214141a78eba37bf9b76bb?utm_medium=embed&utm_campaign=share-popup&utm_content=c427ea0aee214141a78eba37bf9b76bb" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+						</a>
+					</div>
+					<p>
+						
+
+					</p>
+				</div>
+                <div class="box">
+
+					<div class="topic">
+						<a href="" target="_blank">
+							<div class="sketchfab-embed-wrapper"> <iframe title="Deltoids" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/759009c34c954b2d9c19b311409933cd/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/deltoids-759009c34c954b2d9c19b311409933cd?utm_medium=embed&utm_campaign=share-popup&utm_content=759009c34c954b2d9c19b311409933cd" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+						</a>
+                        <p>
+                            
+                        </p>
+					</div>
+					<p>
+						
+                        
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="contact" id="contact">
+		<div class="content">
+			<div class="title"><span>Sign Up</span></div>
+			<div class="contactMenu">
+				<div class="input1">
+					<div class="label1">Your Name</div>
+					<div class="input2">
+						<input type="text"
+							placeholder="Enter your Name here">
+					</div>
+					<div class="label1">
+						<label>Your Email</label>
+					</div>
+					<div class="input2">
+						<input type="text"
+							placeholder="Enter your Email here">
+					</div>
+					<div class="label1">
+						<label>Your Password</label>
+					</div>
+					<div class="input2">
+						<input type="text"
+							placeholder="Enter your Password here">
+					</div>
+					<div class="button">
+						<button  onclick="update()">Sign Up</button>
+					</div>
+				</div>
+				<div class="input3">
+					<div class="rightside1">
+						<div class="title1">
+							<span>
+								Contact Us
+							</span>
+						</div>
+						<div class="content1">
+							Team IPR-390 from 4CST-02 <br>
+                            Presidency University
+						</div>
+						<div class="title1">
+							<span>More Information</span>
+						</div>
+						<div class="content1">
+						IPR-390 4CST02
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Footer section -->
+	<footer>
+		<div class="footer">
+			<span>
+				Created By
+				<a href="index.html">
+					Team IPR390
+				</a>
+			</span>
+		</div>
+	</footer>
+	<script src="index.js"></script>
 </body>
+
 </html>
