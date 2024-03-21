@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autobiography</title>
-    <style>
-        .container{
-           text-align: center;
-        } 
-        body{
-            background-color: bisque;
-     
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPR-390</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="container">Hello</h1>
-    <form action="/action_page.php">
-        <h3>Select your Name</h3>
-        
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="My name is:" required>
-       <br>
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="My name is:" required><br>
-        <h3>Select your age</h3>
-        <input type="radio" id="cname" name="My name is:" required>
-        <label for="cname">18</label><br>
-        <input type="radio" id="dname" name="My name is:"required>
-        <label for="dname">19</label><br>
-        <input type="radio" id="ename" name="My name is:"required>
-        <label for="ename">20</label><br><br>
-     <button type="submit" formaction="fool.html">Submit</button>
-    
-    
-    </form>
+  <header>
+    <h1>VR BASED MEDICAL TRAINING</h1>
+  </header>
+  <div class="members">
+    <h1>Team Members:</h1>
+    <ol>Sakshi P C: 20221CSG0083</ol>
+    <ol>Kushi S K: 20221CSG0087</ol>
+    <ol>Archana: 20221CSG0113</ol>
+    <ol>Sumith: 20221CSG0070 </ol>
+    <ol>Kushal: 20221CSG0108</ol>
+    <ol>Akash: 20221MEC0008</ol>
+  </div>
+  <main>
+    <div class="video-container">
+      <h1>How to insert a nasogastric tube for NG intubation</h1>
+      <video id="video-player" controls>
+        <source src="C:\Users\LENOVO\Desktop\How to insert a nasogastric tube for NG intubation - 3d animation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h1>Tracheotomy - 3D animation</h1>
+      <video id="video-player" controls>
+        <source src="C:\Users\LENOVO\Desktop\Tracheotomy - 3D animation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h1>Nasotracheal suctioning (NTS)</h1>
+      <video id="video-player" controls>
+        <source src="C:\Users\LENOVO\Desktop\Nasotracheal suctioning (NTS) - 3D animation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-thumbnails">
+      <img src="C:\Users\LENOVO\Desktop\download.jpg" alt="Video 1 Thumbnail" onclick="changeVideo('video1.mp4', 'thumbnail1.jpg')">
+      <img src="C:\Users\LENOVO\Desktop\images (1).jpg" alt="Video 2 Thumbnail" onclick="changeVideo('video2.mp4', 'thumbnail2.jpg')">
+      <img src="C:\Users\LENOVO\Desktop\images.jpg" alt="Video 3 Thumbnail" onclick="changeVideo('video3.mp4', 'thumbnail3.jpg')">
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 3D Medical Training Videos</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
