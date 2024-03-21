@@ -63,7 +63,7 @@ nav .sideMenuButton {
 /* responsive navbar css */
 @media screen and (max-width: 600px) {
 	nav .sideMenuButton {
-		display: flex;
+		display: none;
 	}
 
 	nav .navbar {
