@@ -71,7 +71,7 @@ nav .sideMenuButton {
 	}
 
 	.sideNavigationBar {
-		display: block !important;
+		display: none !important;
 	}
 }
 
