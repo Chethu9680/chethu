@@ -62,7 +62,7 @@ nav .sideMenuButton {
 
 /* responsive navbar css */
 @media screen and (max-width: 600px) {
-	nav .sideMenuButton {
+	/* nav .sideMenuButton {
 		display: none;
 	}
 
@@ -71,8 +71,8 @@ nav .sideMenuButton {
 	}
 
 	.sideNavigationBar {
-		display: none !important;
-	}
+		display: none;
+	} */
 }
 
 .sideNavigationBar {
