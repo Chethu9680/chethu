@@ -67,7 +67,7 @@
             border: 1px solid #ccc;
         }
         #videoPlayer {
-            width: 100%;
+            width: auto;
             height: auto;
             display: block;
             margin-top: 20px;
@@ -159,8 +159,11 @@
                 case 'brain surgery':
                     videoPath = './assets/Brain-surgery.mp4';
                     break;
+                case 'khushi':
+                    videoPath = './assets/kushi-reel.mp4';
+                    break;
                 default:
-                    alert('Nanig gotilla enivaaga😂!!!!!!');
+                    alert('Video not found ERROR:404');
                     return;
             }
             // Play the video
