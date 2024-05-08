@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #666;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #videoPlayer {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Voice Recognition-IPR390</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="container">
+        <h2>Welcome to Our Website!</h2>
+        <!-- <p>This is a landing page for our website.</p> -->
+        <input type="text" id="userInput" placeholder="User Input" >
+        <button id="startButton">Start Listening</button>
+        <button id="stopButton" disabled>Stop Listening</button>
+        <button id="clearButton">Clear Text</button>
+        <button id="Submit">Submit</button>
+    </div>
+
+    <video id="videoPlayer" controls style="display: none;"></video>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const clearButton = document.getElementById('clearButton');
+        const userInput = document.getElementById('userInput');
+        const videoPlayer = document.getElementById('videoPlayer');
+        let recognition;
+
+        startButton.addEventListener('click', startRecognition);
+        stopButton.addEventListener('click', stopRecognition);
+        clearButton.addEventListener('click', clearText);
+        Submit.addEventListener('click',play);
+
+        function startRecognition() {
+            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+            console.log('Speech recognition started');
+            startButton.disabled = true;
+            stopButton.disabled = false;
+            recognition.onresult = handleRecognitionResult;
+        }
+
+        function stopRecognition() {
+            if (recognition) {
+                recognition.stop();
+                console.log('Speech recognition stopped');
+                startButton.disabled = false;
+                stopButton.disabled = true;
+            }
+        }
+
+        function clearText() {
+            userInput.value = '';
+        }
+        
+
+        function handleRecognitionResult(event) {
+            const speechToText = event.results[0][0].transcript.toLowerCase();
+            userInput.value = speechToText;
+            playVideo(speechToText);
+        }
+        function play() {
+            playVideo(userInput.value);
+        }
+
+        function playVideo(command) {
+            // Replace this with logic to map commands to local video file paths
+            let videoPath;
+            switch (command.toLowerCase()) {
+                case 'stroke':
+                    videoPath = './assets/Stroke - 3D Medical Animation.mp4';
+                    break;
+                case 'eye surgery':
+                    videoPath = './assets/Eye-surgery.mp4';
+                    break;
+                case 'fertilization':
+                    videoPath = './assets/Fertilization.mp4';
+                    break;
+                case 'brain surgery':
+                    videoPath = './assets/Brain-surgery.mp4';
+                    break;
+                default:
+                    alert('Nanig gotilla enivaaga😂!!!!!!');
+                    return;
+            }
+            // Play the video
+            videoPlayer.src = videoPath;
+            videoPlayer.style.display = 'block';
+            videoPlayer.play();
+        }
+    </script>
+</body>
+</html>
