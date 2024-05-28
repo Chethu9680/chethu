@@ -66,6 +66,7 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
+
         #videoPlayer {
             width: auto;
             height: auto;
@@ -87,90 +88,94 @@
     </nav>
     <div class="container">
         <h2>Welcome to Our Website!</h2>
-        <!-- <p>This is a landing page for our website.</p> -->
-        <input type="text" id="userInput" placeholder="User Input" >
+        <input type="text" id="userInput" placeholder="User Input">
         <button id="startButton">Start Listening</button>
         <button id="stopButton" disabled>Stop Listening</button>
         <button id="clearButton">Clear Text</button>
-        <button id="Submit">Submit</button>
+        <button id="submitButton">Submit</button>
     </div>
 
     <video id="videoPlayer" controls style="display: none;"></video>
 
     <script>
         const startButton = document.getElementById('startButton');
-        const stopButton = document.getElementById('stopButton');
-        const clearButton = document.getElementById('clearButton');
-        const userInput = document.getElementById('userInput');
-        const videoPlayer = document.getElementById('videoPlayer');
-        let recognition;
+const stopButton = document.getElementById('stopButton');
+const clearButton = document.getElementById('clearButton');
+const userInput = document.getElementById('userInput');
+const videoPlayer = document.getElementById('videoPlayer');
+let intervalId = null; // Initialize interval ID to null
 
-        startButton.addEventListener('click', startRecognition);
-        stopButton.addEventListener('click', stopRecognition);
-        clearButton.addEventListener('click', clearText);
-        Submit.addEventListener('click',play);
+startButton.addEventListener('click', startFetchingText);
+stopButton.addEventListener('click', stopFetchingText);
+clearButton.addEventListener('click', clearText);
 
-        function startRecognition() {
-            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-            recognition.lang = 'en-US';
-            recognition.start();
-            console.log('Speech recognition started');
-            startButton.disabled = true;
-            stopButton.disabled = false;
-            recognition.onresult = handleRecognitionResult;
-        }
+function clearText() {
+    userInput.value = '';
+    videoPlayer.style.display = 'none';
+    videoPlayer.pause();
+    videoPlayer.src = '';
+}
 
-        function stopRecognition() {
-            if (recognition) {
-                recognition.stop();
-                console.log('Speech recognition stopped');
-                startButton.disabled = false;
-                stopButton.disabled = true;
+function fetchText() {
+    fetch('http://192.168.43.199:5000/get_text')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Data fetched:', data);
+            if (data && data.text !== undefined) {
+                userInput.value = data.text;
+                playVideo(data.text);
+                stopFetchingText(); // Stop fetching text after it's fetched
+            } else {
+                console.error('No text received or text field is undefined');
             }
-        }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
 
-        function clearText() {
-            userInput.value = '';
-        }
-        
+function startFetchingText() {
+    if (!intervalId) {
+        intervalId = setInterval(fetchText, 2000);
+        startButton.disabled = true;
+        stopButton.disabled = false;
+    }
+}
 
-        function handleRecognitionResult(event) {
-            const speechToText = event.results[0][0].transcript.toLowerCase();
-            userInput.value = speechToText;
-            playVideo(speechToText);
-        }
-        function play() {
-            playVideo(userInput.value);
-        }
+function stopFetchingText() {
+    if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+        startButton.disabled = false;
+        stopButton.disabled = true;
+    }
+}
 
-        function playVideo(command) {
-            // Replace this with logic to map commands to local video file paths
-            let videoPath;
-            switch (command.toLowerCase()) {
-                case 'stroke':
-                    videoPath = './assets/Stroke - 3D Medical Animation.mp4';
-                    break;
-                case 'eye surgery':
-                    videoPath = './assets/Eye-surgery.mp4';
-                    break;
-                case 'fertilization':
-                    videoPath = './assets/Fertilization.mp4';
-                    break;
-                case 'brain surgery':
-                    videoPath = './assets/Brain-surgery.mp4';
-                    break;
-                //case 'khushi':
-                   // videoPath = './assets/kushi-reel.mp4';
-                   // break;
-                default:
-                    alert('Video not found ERROR:404');
-                    return;
-            }
-            // Play the video
-            videoPlayer.src = videoPath;
-            videoPlayer.style.display = 'block';
-            videoPlayer.play();
-        }
+function playVideo(command) {
+    let videoPath;
+    switch (command.toLowerCase()) {
+        case 'stroke':
+            videoPath = './assets/Stroke - 3D Medical Animation.mp4';
+            break;
+        case 'eye surgery':
+            videoPath = './assets/Eye-surgery.mp4';
+            break;
+        case 'fertilization':
+            videoPath = './assets/Fertilization.mp4';
+            break;
+        case 'brain surgery':
+            videoPath = './assets/Brain-surgery.mp4';
+            break;
+        default:
+            alert('Video not found ERROR:404');
+            return;
+    }
+    videoPlayer.src = videoPath;
+    videoPlayer.style.display = 'block';
+    videoPlayer.play();
+    videoPlayer.requestFullscreen();
+}
+
     </script>
 </body>
 </html>
